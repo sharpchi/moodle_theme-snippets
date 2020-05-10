@@ -14,23 +14,24 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * @package   theme_snippets
- * @author    Mark Sharp <m.sharp@chi.ac.uk>
- * @copyright 2020 University of Chichester {@link www.chi.ac.uk}
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
-*/
-
 defined('MOODLE_INTERNAL') || die();
 
-$THEME->layouts = [
-    'coursecategory' => array(
-        'file' => 'coursecategory.php',
-        'regions' => array('side-pre'),
-        'defaultregion' => 'side-pre',
-    )
+/**
+ * A login page layout for the boost theme.
+ *
+ * @package   theme_boost
+ * @copyright 2016 Damyon Wiese
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+$bodyattributes = $OUTPUT->body_attributes();
+
+$templatecontext = [
+    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+    'output' => $OUTPUT,
+    'bodyattributes' => $bodyattributes,
+    'myloginextra' => 'A little something for my login.'
 ];
 
-$THEME->name = 'snippets';
+echo $OUTPUT->render_from_template('theme_snippets/login', $templatecontext);
 
-$THEME->parents = ['boost'];
