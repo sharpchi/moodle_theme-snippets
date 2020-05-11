@@ -23,6 +23,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
+
 $THEME->name = 'snippets';
 
 $THEME->parents = ['boost'];
